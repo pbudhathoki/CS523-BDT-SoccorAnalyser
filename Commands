@@ -1,0 +1,30 @@
+Commands:
+Project Load:
+Copy the project inside /home/cloudera/workspace directory
+
+Local mode:
+1) Load the prgram in Eclipse
+2) Run the program as Java Application
+After the spark streaming Context is created, 
+3) Run the shellscript file named copyDataSet.sh which automates the copying of file from desktop directory to input directory of project.
+	3.1 if there is access error in executing the shellscript, run the following command
+		chmod +x /home/cloudera/workspace/BDT-FinalProject/copyDataSet.sh
+	3.2 The command to run shellscript through terminal is /home/cloudera/workspace/BDT-FinalProject/copyDataSet.sh
+
+4) For the verification purpose, you can see output in console mode as well as log report is written in following directory
+  directory path: /home/cloudera/workspace/BDT-FinalProject/output
+	filename:output.txt
+
+Pseudo-Distributed mode
+1) Copy the given jar file(SoccorAnalyser.jar) to desktop directory
+2) Run the following command in Terminal to start the program in Pseudo-Distributed mode
+	spark-submit --class "cs523.SoccorAnalyser.SparkStreamDemo" --master yarn '/home/cloudera/Desktop/SoccorAnalyser.jar'
+3) If you do not have input folder inside /user/cloudera/ directory, make sure you create input folder before running shellscript.
+4) Run the shellscript file named copyDataSetHDFS.sh which automates the copying of file from desktop directory to HDFS directory inside /user/cloudera/input.   
+	4.1 If there is access error in executing the shellscript, run the following command
+		chmod +x /home/cloudera/workspace/BDT-FinalProject/copyDataSetHDFS.sh 
+	4.2 The command to run shellscript through terminal is /home/cloudera/workspace/BDT-FinalProject/copyDataSetHDFS.sh
+
+5) For the verification purpose, you can see output in terminal as well as log report is written in following directory
+  directory path: /home/cloudera/workspace/BDT-FinalProject/output
+		  filename:output.txt

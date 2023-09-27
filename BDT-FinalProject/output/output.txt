@@ -1,0 +1,303 @@
+Dataset Tournament Start Date"1973-11-15"
+Dataset Tournament End Date"1976-08-10"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+85,"South Korea"
+68,"Poland"
+68,"Myanmar"
+64,"Argentina"
+60,"Malawi"
+59,"Iraq"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+58,"Malaysia"
+58,"China PR"
+58,"Kuwait"
+57,"Brazil"
+57,"Germany"
+54,"Thailand"
+52,"German DR"
+52,"Netherlands"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+13,"South Pacific Games"
+10,"AFC Asian Cup"
+9,"Nordic Championship"
+8,"Vietnam Independence Cup"
+7,"CONCACAF Championship qualification"
+7,"Korea Cup"
+4,"UEFA Euro"
+4,"Balkan Cup"
+2,"Copa Rio Branco"
+2,"Copa Newton"
+2,"Copa Oswaldo Cruz"
+2,"Atlantic Cup"
+2,"Copa Roca"
+2,"Copa Artigas"
+2,"Copa Carlos Dittborn"
+2,"Copa Juan Pinto Durán"
+2,"Copa Félix Bogado"
+1,"Copa Lipton"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+402,"Friendly"
+104,"UEFA Euro qualification"
+46,"Merdeka Tournament"
+40,"King's Cup"
+38,"African Cup of Nations qualification"
+38,"FIFA World Cup"
+35,"Gulf Cup"
+35,"African Cup of Nations"
+31,"AFC Asian Cup qualification"
+25,"Copa América"
+20,"FIFA World Cup qualification"
+18,"British Home Championship"
+15,"Kuneitra Cup"
+15,"CONCACAF Championship"
+15,"Indonesia Tournament"
+14,"CECAFA Cup"
+14,"Windward Islands Tournament"
+14,"Palestine Cup"
+Dataset Tournament Start Date"1976-08-11"
+Dataset Tournament End Date"1979-02-16"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+66,"Thailand"
+52,"Poland"
+52,"Mexico"
+51,"Argentina"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+122,"South Korea"
+108,"Zambia"
+89,"Malaysia"
+71,"Malawi"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+12,"British Home Championship"
+11,"Nordic Championship"
+9,"Balkan Cup"
+8,"Indonesia Tournament"
+7,"Beijing International Friendship Tournament"
+6,"CFU Caribbean Cup"
+5,"AFC Asian Cup qualification"
+4,"Copa Ramón Castilla"
+2,"Copa Artigas"
+2,"Copa Juan Pinto Durán"
+2,"Copa Félix Bogado"
+2,"Copa Paz del Chaco"
+1,"Copa Carlos Dittborn"
+1,"Kirin Cup"
+1,"Real Madrid 75th Anniversary Cup"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+414,"Friendly"
+189,"FIFA World Cup qualification"
+60,"Merdeka Tournament"
+38,"FIFA World Cup"
+37,"CECAFA Cup"
+36,"UEFA Euro qualification"
+32,"African Cup of Nations qualification"
+29,"CONCACAF Championship qualification"
+21,"Korea Cup"
+15,"CONCACAF Championship"
+15,"African Cup of Nations"
+14,"CFU Caribbean Cup qualification"
+14,"King's Cup"
+13,"Amílcar Cabral Cup"
+******Writing pattern of International football tournament organizer by city for threshold 40********
+The format is <<City, Country>, TotalNumberofMatches> 
+("Kuala Lumpur","Malaysia"),60
+Dataset Tournament Start Date"1979-02-18"
+Dataset Tournament End Date"1981-04-11"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+61,"Poland"
+61,"Tahiti"
+57,"Morocco"
+53,"Germany"
+52,"Russia"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+81,"South Korea"
+64,"Brazil"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+405,"Friendly"
+117,"FIFA World Cup qualification"
+72,"UEFA Euro qualification"
+49,"African Cup of Nations qualification"
+43,"Merdeka Tournament"
+39,"CONCACAF Championship qualification"
+26,"South Pacific Games"
+25,"Copa América"
+24,"AFC Asian Cup"
+23,"Amílcar Cabral Cup"
+22,"CECAFA Cup"
+21,"Gulf Cup"
+18,"Korea Cup"
+16,"African Cup of Nations"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+14,"UEFA Euro"
+14,"Oceania Nations Cup"
+12,"CFU Caribbean Cup qualification"
+12,"British Home Championship"
+8,"Nordic Championship"
+8,"AFC Asian Cup qualification"
+7,"Mundialito"
+6,"King's Cup"
+5,"CFU Caribbean Cup"
+4,"Guangzhou International Friendship Tournament"
+4,"Copa Paz del Chaco"
+2,"Copa Juan Pinto Durán"
+2,"Balkan Cup"
+1,"FIFA 75th Anniversary Cup"
+1,"Kirin Cup"
+Dataset Tournament Start Date"1981-04-11"
+Dataset Tournament End Date"1983-08-14"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+64,"Germany"
+59,"South Korea"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+57,"Hungary"
+57,"New Zealand"
+54,"Brazil"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+14,"King's Cup"
+13,"West African Cup"
+11,"CFU Caribbean Cup"
+10,"Nordic Championship"
+7,"Nehru Cup"
+6,"Merlion Cup"
+3,"Copa del Pacífico"
+3,"Kirin Cup"
+3,"Beijing International Friendship Tournament"
+2,"Copa Artigas"
+2,"Copa Juan Pinto Durán"
+2,"Great Wall Cup"
+2,"Copa América"
+2,"Copa Félix Bogado"
+2,"Indonesia Tournament"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+393,"Friendly"
+132,"FIFA World Cup qualification"
+74,"UEFA Euro qualification"
+58,"African Cup of Nations qualification"
+52,"FIFA World Cup"
+39,"Merdeka Tournament"
+29,"Amílcar Cabral Cup"
+28,"CFU Caribbean Cup qualification"
+28,"CECAFA Cup"
+23,"Korea Cup"
+16,"British Home Championship"
+16,"African Cup of Nations"
+15,"Gulf Cup"
+15,"CONCACAF Championship"
+Dataset Tournament Start Date"1971-08-21"
+Dataset Tournament End Date"1973-11-14"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+56,"Kuwait"
+55,"Tahiti"
+51,"Netherlands"
+51,"Zambia"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+72,"Malaysia"
+72,"South Korea"
+59,"Haiti"
+58,"Singapore"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+14,"Windward Islands Tournament"
+14,"Indonesia Tournament"
+13,"AFC Asian Cup"
+12,"Oceania Nations Cup"
+12,"British Home Championship"
+11,"Nordic Championship"
+11,"South Pacific Games"
+10,"Gulf Cup"
+8,"CECAFA Cup"
+4,"UEFA Euro"
+3,"Copa Carlos Dittborn"
+2,"Copa Juan Pinto Durán"
+2,"Copa Ramón Castilla"
+1,"Copa Newton"
+1,"Copa Lipton"
+1,"Balkan Cup"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+338,"Friendly"
+182,"FIFA World Cup qualification"
+58,"Merdeka Tournament"
+44,"UEFA Euro qualification"
+44,"Palestine Cup"
+41,"African Cup of Nations qualification"
+37,"Brazil Independence Cup"
+28,"CONCACAF Championship qualification"
+26,"Korea Cup"
+21,"King's Cup"
+16,"AFC Asian Cup qualification"
+16,"African Cup of Nations"
+15,"Vietnam Independence Cup"
+15,"CONCACAF Championship"
+******Writing pattern of International football tournament organizer by city for threshold 40********
+The format is <<City, Country>, TotalNumberofMatches> 
+("Kuala Lumpur","Malaysia"),51
+Dataset Tournament Start Date"1968-10-21"
+Dataset Tournament End Date"1971-08-21"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+73,"South Korea"
+68,"Germany"
+58,"England"
+57,"Mexico"
+56,"Guinea"
+54,"Poland"
+51,"Peru"
+******Writing total goal scored by each country********
+The format is <Total Number of goals, Country> 
+138,"Indonesia"
+100,"Myanmar"
+90,"Malaysia"
+85,"Brazil"
+77,"Zambia"
+75,"Thailand"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+400,"Friendly"
+158,"FIFA World Cup qualification"
+81,"Merdeka Tournament"
+61,"UEFA Euro qualification"
+47,"King's Cup"
+45,"African Cup of Nations qualification"
+32,"FIFA World Cup"
+29,"Indonesia Tournament"
+18,"British Home Championship"
+16,"South Pacific Games"
+16,"African Cup of Nations"
+******Writing type of match and total number of match********
+The format is <Total Number of match, MatchType> 
+15,"Korea Cup"
+15,"CONCACAF Championship"
+14,"Nordic Championship"
+14,"Windward Islands Tournament"
+13,"AFC Asian Cup qualification"
+6,"Gulf Cup"
+6,"Vietnam Independence Cup"
+4,"CONCACAF Championship qualification"
+4,"Copa Carlos Dittborn"
+2,"Copa del Pacífico"
+2,"Copa Roca"
+2,"Copa Chevallier Boutell"
+******Writing pattern of International football tournament organizer by city for threshold 40********
+The format is <<City, Country>, TotalNumberofMatches> 
+("Kuala Lumpur","Malaysia"),69
+******Writing pattern of International football tournament organizer by city for threshold 40********
+The format is <<City, Country>, TotalNumberofMatches> 
+("Bangkok","Thailand"),60
