@@ -22,9 +22,9 @@ Data Loading: Load the CSV data into a Hive table using Hive's LOAD DATA command
 
 Data Transformation: Use Hive's SQL-like language, HiveQL, to perform various data transformations and aggregations. we calculated statistics, filter data by date, tournament, or teams, and perform other necessary preprocessing.
 
-Querying: We ran Hive queries to extract insights from the data. For example, we found the countries with the most international goes, city and country organizing most games, the pattern of football match in international tournament, and more.
+Querying: We ran Hive queries to extract insights from the data. For example, we found the countries with the most international goals, city and country organizing most games, the pattern of football match in international tournament, and more.
 
 
 **Output and Visualization:**
 We planned to do visualization of some statistics. However, due to time constraints, we were not able to do it.
-In future, We plan to visualize the real-time data and insights using data visualization tools like Apache Zeppelin, Jupyter Notebook, or custom dashboards. This can help us provide live updates to football enthusiasts.
+In future, We plan to visualize the real-time data and insights using data visualization tools like Apache Zeppelin, Jupyter Notebook, or Tableau(connect with Cloudera Hadoop using ODBC client and fetching data from the Hive Tables)​. This can help us provide live updates to football enthusiasts.
