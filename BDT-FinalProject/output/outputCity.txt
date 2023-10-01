@@ -1,0 +1,9 @@
+"1976-08-11","1979-02-16",("Kuala Lumpur","Malaysia"),60
+"1872-11-30","1926-09-19",("Buenos Aires","Argentina"),60
+"1872-11-30","1926-09-19",("Montevideo","Uruguay"),59
+"1872-11-30","1926-09-19",("Budapest","Hungary"),58
+"1956-07-15","1961-10-01",("Kuala Lumpur","Malaya"),61
+"1965-09-05","1968-10-20",("Kuala Lumpur","Malaysia"),70
+"1968-10-21","1971-08-21",("Kuala Lumpur","Malaysia"),69
+"1968-10-21","1971-08-21",("Bangkok","Thailand"),60
+"1971-08-21","1973-11-14",("Kuala Lumpur","Malaysia"),51

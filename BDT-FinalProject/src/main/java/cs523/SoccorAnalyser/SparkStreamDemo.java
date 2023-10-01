@@ -24,10 +24,20 @@ public class SparkStreamDemo
 		JavaStreamingContext streamingContext = new JavaStreamingContext(conf, Durations.seconds(20));
 		//Logger.getRootLogger().setLevel(Level.ERROR);
 		
-		JavaDStream<String> lines = streamingContext.textFileStream("/user/cloudera/input/");
+		JavaDStream<String> lines = streamingContext.textFileStream("/home/cloudera/workspace/BDT-FinalProject/input/");
 		
 		// Define the path to the text file where you want to append the data (used for logging purpose)
         String outputPath = "/home/cloudera/workspace/BDT-FinalProject/output/output.txt"; 
+        
+     // Define the path to the text file where you want to append the data (used for goal data)
+        String outputPathGoal = "/home/cloudera/workspace/BDT-FinalProject/output/outputGoal.txt"; 
+        
+     // Define the path to the text file where you want to append the data (used for organizerCity)
+        String outputPathOrganizerCity = "/home/cloudera/workspace/BDT-FinalProject/output/outputCity.txt"; 
+        
+     // Define the path to the text file where you want to append the data (used for goal data)
+        String outputPathMatchType = "/home/cloudera/workspace/BDT-FinalProject/output/outputMatchTtype.txt"; 
+        
 		
 		// Use the transform operation to exclude the first line
         JavaDStream<String> filteredLines = lines.transform(rdd -> rdd.zipWithIndex().filter(tuple -> tuple._2() > 0).map(tuple -> tuple._1()));
@@ -135,6 +145,22 @@ public class SparkStreamDemo
             });
         });
         
+     // Using foreachRDD to write each line to a file using FileWriter (this one will be the input for hive)
+        sortedScores.foreachRDD(rdd -> {
+            rdd.foreachPartition(iter -> {
+                try (FileWriter writer = new FileWriter(outputPathGoal, true)) {
+                	boolean partitionContainsData = iter.hasNext();
+                	if(partitionContainsData){
+                	}
+                    while (iter.hasNext()) {
+                        Tuple2<Integer, String> record = iter.next();
+                        writer.write(FromToDate[0]+ "," +FromToDate[1]+ "," + record._1() + "," + record._2() + "\n");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        });
       //case 2: calculating the type of the match and order it in Descending order
       //to find the popularity of different type of matches at different timeframe
         JavaPairDStream<String, Integer> matchType = filteredLines.mapToPair(line -> {
@@ -181,6 +207,23 @@ public class SparkStreamDemo
             });
         });
         
+     // Using foreachRDD to write each line to a file using FileWriter (this one will be the input for hive)
+        sortedMatchType.foreachRDD(rdd -> {
+            rdd.foreachPartition(iter -> {
+                try (FileWriter writer = new FileWriter(outputPathMatchType, true)) {
+                	boolean partitionContainsData = iter.hasNext();
+                	if(partitionContainsData){
+                	}
+                    while (iter.hasNext()) {
+                        Tuple2<Integer, String> record = iter.next();
+                        writer.write(FromToDate[0]+ "," +FromToDate[1]+ "," + record._1() + "," + record._2() + "\n");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        });
+        
         //Case 3: Find the pattern of International football tournament organizer by city with threshold 40     
         JavaPairDStream<Tuple2<String, String>, Integer> organizerCity = filteredLines.mapToPair(line -> {
             String[] parts = line.split(",");             
@@ -220,20 +263,23 @@ public class SparkStreamDemo
             });
         });
         
-//     // Using foreachRDD to write each line to a file using FileWriter
-//        sortedMatchType.foreachRDD(rdd -> {
-//            rdd.foreachPartition(iter -> {
-//                try (FileWriter writer = new FileWriter(outputPath, true)) {
-//                    while (iter.hasNext()) {
-//                        Tuple2<Integer, String> record = iter.next();
-//                        writer.write(record._1() + "," + record._2() + "\n");
-//                    }
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            });
-//        });
- 
+     // Use foreachRDD to write the values to the output file (this one will be the input for the hive)
+        organizerCityAbove40.foreachRDD(rdd -> {
+            rdd.foreachPartition(partition -> {
+                try (FileWriter writer = new FileWriter(outputPathOrganizerCity, true)) {
+                	boolean partitionContainsData = partition.hasNext();
+                	if(partitionContainsData){
+                	}
+                    while (partition.hasNext()) {
+                        Tuple2<Tuple2<String, String>, Integer> data = partition.next();
+                        writer.write(FromToDate[0]+ "," +FromToDate[1]+ "," + data._1() + "," + data._2() + "\n"); // Write the value (integer) to the file
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        });
+        
         //try catch is implemented to catch unexpected error handling        
         try {
       	  // streaming start and await termination
@@ -251,93 +297,5 @@ public class SparkStreamDemo
       		streamingContext.stop();
       	}
         
-        
-        
-//     // Sort the results in descending order based on the scores
-//        JavaPairDStream<String, Integer> sortedScores = scoresAbove50.mapToPair(Tuple2::swap).transformToPair(rdd ->
-//            rdd.sortByKey(true)
-//        ).mapToPair(Tuple2::swap);
-        
-        
-        
-//        JavaPairDStream<Integer, String> sortedScores1 = totalScores.mapToPair(Tuple2::swap).transformToPair(rdd ->
-//        rdd.sortByKey(true)).mapToPair(Tuple2::swap);
-
-
-        // Sum the home_scores based on the home_team
-        //JavaPairDStream<String, Integer> totalScores = teamScores.reduceByKey(Integer::sum);
-
-        // Print the total scores to the console
-        //totalScores.print();
-        
-     
-
-//        // Use foreachRDD to loop through each RDD and append its elements to the log text file
-//        filteredLines.foreachRDD(rdd -> {
-//            rdd.foreachPartition(iter -> {
-//                try (FileWriter writer = new FileWriter(outputPath, true)) {
-//                    while (iter.hasNext()) {
-//                        String line = iter.next();
-//                        writer.write(line + "\n");
-//                    }
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            });
-//        });
-		// Use foreachRDD to iterate over each RDD in the DStream
-//        lines.foreachRDD(rdd -> {rdd.foreach(line -> {
-//                System.out.println(line);
-//            });
-//        });
-//		JavaDStream<Integer> wordCounts = lines
-//	            .flatMap(e -> Arrays.asList(e.split(" ")))
-//	            .mapToPair(word -> new Tuple2<>(word, 1))
-//	            .reduceByKey((count1, count2) -> count1 + count2)
-//	            .map(tuple -> tuple._2());
-//
-//	        // Print the word counts in each batch interval
-//		 System.out.println("Total Puskar Worddcount is: Count = ");
-//		// Use foreachRDD to iterate over each RDD in the DStream
-//	        wordCounts.foreachRDD(rdd -> {
-//	            rdd.foreachPartition(iter -> {
-//	                // Define a file path where you want to save the data
-//	                String outputPath = "/home/cloudera/Desktop/output/output.txt"; // Adjust the path as needed
-//
-//	                try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true))) {
-//	                    while (iter.hasNext()) {
-//	                        Integer count = iter.next();
-//	                        writer.write(count.toString());
-//	                        writer.newLine();
-//	                    }
-//	                } catch (IOException e) {
-//	                    e.printStackTrace();
-//	                }
-//	            });
-//	        });
-	        
-//		// Filter the data based on some condition (e.g., filter lines containing a specific keyword)
-//        JavaDStream<String> filteredLines = lines.filter(line -> line.contains("mapReduce") || line.contains("Puskar"));
-//        
-//        filteredLines.count().foreachRDD(countRDD -> {
-//            long count = countRDD.first(); // Get the count value
-//            if (count > 0) {
-//                // Perform an action when count is greater than zero
-//                System.out.println("Count is greater than zero: " + count);
-//                // You can add your custom logic here
-//            }
-//        });
-
-//        // Define the path where you want to save the filtered data to HDFS
-//        String outputPath = "/home/cloudera/Desktop/output"; // Replace with your output HDFS path
-//
-//        // Save the filtered data to HDFS
-//        filteredLines.dstream().saveAsTextFiles(outputPath, "filtered");
-        
-        //filteredLines.print();
-        
-       		
-//		streamingContext.start();
-//		streamingContext.awaitTermination();
 	}
 }
