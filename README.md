@@ -24,6 +24,9 @@ Data Transformation: Use Hive's SQL-like language, HiveQL, to perform various da
 
 Querying: We ran Hive queries to extract insights from the data. For example, we found the countries with the most international goals, city and country organizing most games, the pattern of football match in international tournament, and more.
 
+**Data Export to HBase:**
+For the demonstration, the aggregate soccor result is exported in HBase table SoccorScoreTable. Every aggregated result from RDD partitions are saved to HBase column-family for use case1 soccor result.
+
 
 **Output and Visualization:**
 We planned to do visualization of some statistics. However, due to time constraints, we were not able to do it.
