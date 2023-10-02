@@ -29,6 +29,36 @@
 		    <artifactId>spark-streaming_2.12</artifactId>
 		    <version>2.4.4</version>
 	</dependency>
+	<dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql_2.11</artifactId> <!-- Use the appropriate Scala version -->
+        <version>2.4.8</version> <!-- Use your desired Spark version -->
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql_2.11</artifactId>
+        <version>2.4.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-hive -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-hive_2.11</artifactId>
+        <version>2.4.3</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-client</artifactId>
+      <version>2.2.5</version> <!-- Use the appropriate version -->
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-core</artifactId>
+      <version>1.2.0</version> <!-- Use the appropriate version -->
+    </dependency>
   </dependencies>
 <repositories>
     <repository>
