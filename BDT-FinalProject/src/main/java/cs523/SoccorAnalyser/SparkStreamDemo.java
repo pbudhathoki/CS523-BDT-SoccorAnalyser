@@ -9,9 +9,29 @@ import scala.Tuple2;
 
 import org.apache.log4j.*;
 import org.apache.spark.streaming.api.java.*;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.streaming.Duration;
+import org.apache.spark.streaming.api.java.JavaDStream;
+import org.apache.spark.streaming.api.java.JavaPairReceiverInputDStream;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
+
+import scala.Tuple2;
+
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SparkStreamDemo
 {
@@ -138,6 +158,7 @@ public class SparkStreamDemo
                     while (iter.hasNext()) {
                         Tuple2<Integer, String> record = iter.next();
                         writer.write(record._1() + "," + record._2() + "\n");
+                        //saveToHBase(FromToDate[0],FromToDate[1], record._1().toString() ,record._2());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -298,4 +319,40 @@ public class SparkStreamDemo
       	}
         
 	}
+	
+	 private static void saveToHBase(String fromDate, String toDate, String score, String Country) {
+	        try {
+	            Configuration conf = HBaseConfiguration.create();
+	            conf.set("hbase.zookeeper.quorum", "localhost");
+	            conf.set("hbase.zookeeper.property.clientPort", "2183");
+	            conf.set("hbase.master", "localhost:16010");
+
+	            Connection connection = ConnectionFactory.createConnection(conf);
+	            Admin admin = connection.getAdmin();
+	            System.out.println("Table created");
+	            // Define the table name and column family
+	            TableName tableName = TableName.valueOf("SoccorScoreTable");
+
+	            Table table = connection.getTable(tableName);
+
+	            // Create a Put object to specify the row key
+	            Put put = new Put(Bytes.toBytes("row1")); // Change "row1" to your desired row key
+	            Put soccorData = new Put(Bytes.toBytes("row1"));
+
+	            // Add data to the Put object
+	            soccorData.addColumn(Bytes.toBytes("fromDate"), Bytes.toBytes("From"), Bytes.toBytes(fromDate));
+	            soccorData.addColumn(Bytes.toBytes("toDate"), Bytes.toBytes("To"), Bytes.toBytes(toDate));
+	            soccorData.addColumn(Bytes.toBytes("Score"), Bytes.toBytes("TotalScore"), Bytes.toBytes(score));
+	            soccorData.addColumn(Bytes.toBytes("Country"), Bytes.toBytes("CountryName"), Bytes.toBytes(Country));
+	            table.put(put);
+	            // Close the table when done
+	            table.close();
+	            System.out.println("Table created successfully.");
+
+	            admin.close();
+	            connection.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 }
